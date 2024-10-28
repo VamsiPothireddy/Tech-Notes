@@ -42,4 +42,26 @@ Clean
 Site Life Cycle
 Site –generates html files
 Site-deploy – deploys generated html files in to remote servers
+----------------------------------
 
+Actually when we run mvn <pahse> we are indirectlly telling execute all plugins with scope define as phase mentioned in command 
+
+two symtxes for maven mvn <phase>  and mvn goal:pluginname 
+
+Anology : If PreparingDishes , keepingOnTable , Cleaning are 3 phases ; 
+Tools like mixer, knife are tools like plug in and each tool has goal mixer-mixing ingerdisants ; Knife -CuttingVegtables;
+MixingIngerdiants and CuttingVegtables goals are attached to PreparingDishes phase - 
+
+So i can run mvn command in two ways
+
+mvn PreparingDishes -- this will run two goals MixingIngerdiants and CuttingVegtables 
+
+or else i can run each goald independently 
+
+mvn Mixer:MixingIngerdiants
+mvn Knife:CuttingVegtables
+
+In Maven though you dont explicitly define each plug in and respective goal - there will be some default goals infused to pom.xml thats why yu may not see some plugins for compile phase still those eill be executed
+
+
+End of the day maven commands are running certain goals in specific sequnece
