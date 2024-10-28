@@ -43,4 +43,3 @@ Site Life Cycle
 Site –generates html files
 Site-deploy – deploys generated html files in to remote servers
 
-![image](https://github.com/user-attachments/assets/c6d817fa-1d7f-4ba8-8b2d-cb0a4395ec11)
