@@ -39,10 +39,12 @@ deploy – deploys in remote repository
 Clean LifeCycle
 Clean
 
+
+
+
 Site Life Cycle
 Site –generates html files
 Site-deploy – deploys generated html files in to remote servers
-----------------------------------
 
 Actually when we run mvn <pahse> we are indirectlly telling execute all plugins with scope define as phase mentioned in command 
 
