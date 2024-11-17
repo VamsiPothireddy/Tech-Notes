@@ -1,0 +1,1 @@
+Lets push file to S3 bucket in cross account from pod running in current account by assuming role in cross account
