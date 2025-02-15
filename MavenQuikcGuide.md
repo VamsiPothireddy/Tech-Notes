@@ -70,9 +70,9 @@ End of the day maven commands are running certain goals in specific sequnece
 ```
 Lifecycles
  ├── Default Lifecycle
- │   ├── validate
- │   ├── compile
- │   │   └── maven-compiler-plugin:compile
+ │   ├── validate(phase1)
+ │   ├── compile(phase2)
+ │   │   └── maven-compiler-plugin?(plgin):compile(goal)
  │   ├── test
  │   │   └── maven-surefire-plugin:test
  │   ├── package
