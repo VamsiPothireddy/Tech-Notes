@@ -67,7 +67,7 @@ In Maven though you dont explicitly define each plug in and respective goal - th
 
 
 End of the day maven commands are running certain goals in specific sequnece
-
+```
 Lifecycles
  ├── Default Lifecycle
  │   ├── validate
@@ -96,3 +96,4 @@ Lifecycles
      ├── site-deploy
          └── maven-site-plugin:deploy
 
+```
