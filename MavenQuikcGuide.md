@@ -97,3 +97,37 @@ Lifecycles
          └── maven-site-plugin:deploy
 
 ```
+So if i have to generate docker image  added dockerfile-maven-plugin plug in to install phase , so dirng instal this plug in goal will be executed and calls docker file with argumnet JAR_FILE path where jar got generated.
+
+Dcoker file
+FROM openjdk:17-jdk-slim
+ARG JAR_FILE=target/*.jar  # Argument for the path to the JAR file
+COPY ${JAR_FILE} app.jar  # Copy the JAR file from target to the container
+ENTRYPOINT ["java", "-jar", "/app.jar"]  # Run the JAR file inside the container
+
+
+<build>
+    <plugins>
+        <plugin>
+            <groupId>com.spotify</groupId>
+            <artifactId>dockerfile-maven-plugin</artifactId>
+            <version>1.4.13</version>
+            <executions>
+                <execution>
+                    <goals>
+                        <goal>build</goal> <!-- Builds the Docker image -->
+                    </goals>
+                    <phase>install</phase> <!-- Runs during install phase -->
+                </execution>
+            </executions>
+            <configuration>
+                <repository>your-dockerhub-repo/your-app-name</repository> <!-- Repository on DockerHub -->
+                <tag>latest</tag> <!-- Tag the image as 'latest' -->
+                <dockerfileDir>${project.basedir}</dockerfileDir> <!-- Path to Dockerfile -->
+                <buildArgs>
+                    <JAR_FILE>${project.build.directory}/${project.build.finalName}.jar</JAR_FILE> <!-- Path to the jar -->
+                </buildArgs>
+            </configuration>
+        </plugin>
+    </plugins>
+</build>
