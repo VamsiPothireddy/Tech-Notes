@@ -67,3 +67,32 @@ In Maven though you dont explicitly define each plug in and respective goal - th
 
 
 End of the day maven commands are running certain goals in specific sequnece
+
+Lifecycles
+ ├── Default Lifecycle
+ │   ├── validate
+ │   ├── compile
+ │   │   └── maven-compiler-plugin:compile
+ │   ├── test
+ │   │   └── maven-surefire-plugin:test
+ │   ├── package
+ │   │   └── maven-jar-plugin:jar
+ │   ├── install
+ │   │   └── maven-install-plugin:install
+ │   ├── deploy
+ │       └── maven-deploy-plugin:deploy
+ │
+ ├── Clean Lifecycle
+ │   ├── pre-clean
+ │   ├── clean
+ │   │   └── maven-clean-plugin:clean
+ │   ├── post-clean
+ │
+ ├── Site Lifecycle
+     ├── pre-site
+     ├── site
+     │   └── maven-site-plugin:site
+     ├── post-site
+     ├── site-deploy
+         └── maven-site-plugin:deploy
+
